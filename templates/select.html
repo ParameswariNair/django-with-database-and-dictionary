@@ -1,0 +1,39 @@
+<form method="POST">
+    {% csrf_token %}
+    <table border=2 >
+            
+        <h1>PRODUCT LIST</h1>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Description</th>
+                <th>Price</th>   
+            </tr>
+        </thead>
+    
+        <tbody>
+             {% for d1 in data %}
+        <tr>
+        
+        <td>{{d1.1}}</td>
+        
+        <td>{{d1.2}}</td>
+        
+        <td>{{d1.3}}</td>
+        
+       
+        <td>
+            <a href="/cart/?productid={{d1.0}}">Move to Cart</a>
+        </td>
+        
+        <td>
+                <a href="addcart?productid={{d1.0}}">Move to temp Cart</a>
+        </td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+    
+     </body>  
+    </table>
+</form>
